@@ -50,6 +50,16 @@
     </tr>
   </thead>
   <tbody>
+    <?php 
+    $no = 1;
+        foreach ($sync_visi as $data_visi) {
+        ?>
+          <tr>
+            <td><?=$no++?></td><td><?=$data_visi['visirpjmn']?></td><td><?=$data_visi['visi_rpjmd']?></td><td><?=$data_visi['keterangan']?></td><td><a class="btn btn-warning" href="#">edit</a> <a href="#">hapus</a></td>
+          </tr>
+        <?php
+        }
+     ?>
     <!--
     isian pada masing2 kolom, jika ada data yang sama di merge menjadi 1 cell
     -->
@@ -76,7 +86,7 @@
     <tr>
       <td></td>
       <td colspan="2">Total Keselarasan</td>
-      <td>1
+      <td><?=$visi_sel?>
         <!--
         menghitung jumlah "selaras" pada cell di atasnya
         -->
@@ -85,7 +95,7 @@
     <tr>
       <td></td>
       <td colspan="2">Persentase Keselarasan</td>
-      <td>100%
+      <td><?= number_format(($visi_sel/$visi_total)*100, 2, ',', ' ')?>%
         <!--
         persentase jumlah selaras dengan jumlah isian pada kolom sebelumnya (kolom ke 3)
         -->

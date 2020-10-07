@@ -11,6 +11,8 @@
       $this->load->helper('url');
     }
     function index (){
+      $data['visi_sel'] = $this->m_data->sync_visi('selaras')->num_rows();
+      $data['visi_total'] = $this->m_data->sync_visi()->num_rows();
       $data['sync_visi'] = $this->m_data->tampil_kkk3a();
       $this->load->view("selaras/kkk3a", $data);
     }

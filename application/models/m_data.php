@@ -74,6 +74,15 @@ class M_data extends CI_Model{
 	function tampil_misir(){
 		return $this->db->get('daftar_misirpjmn');
 	}
+	function sync_visi($selaras=null){
+		$this->db->select('*');
+		$this->db->from('sync_visi');
+		($selaras!=null)?$this->db->where('selaras','selaras'):'';
+		return $this->db->get();
+	}
+	function daftar_visirpjmn(){
+		return $this->db->get('daftar_misirpjmn');
+	}
 	// end edit
 	
 	function tampil_kkk4(){
