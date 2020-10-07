@@ -2,8 +2,13 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Home</title>
+   
     <?php $this->load->view('template/header_style.php') ?>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
+  
   </head>
   <body class="hold-transition sidebar-mini" style="background-color: #071a52">
 
@@ -35,10 +40,18 @@
       <form action="<?php echo base_url(). 'kkk3a/tambah_aksi'; ?>" method="post">
         <div class="form-group">
           <label>Visi RPJMN</label>
-          <select class="form-control" name="visirpjmn">
-            <option selected>Pilih</option>
-            <option value="1">Terwujudnya Indonesia yang Berdaulat, Mandiri, dan Berkepribadian Berlandaskan Nilai dan Semangat Gotong Royong</option>
+          <select class="selectpicker form-control" data-live-search="true">
+            <option data-tokens="ketchup mustard">Pilih</option>
+            <?php 
+              foreach($misi_rpjm as $data_rpjm){
+                ?>
+                  <option value="<?=$data_rpjm['id_misirpjmn']?>"><?=$data_rpjm['misirpjmn']?></option>
+                <?php
+              }
+
+            ?>
           </select>
+ 
           <label>Visi RPJMD</label>
             <input type="text" class="form-control" name="visi_rpjmd">
           <label>Selaras?</label>
@@ -85,5 +98,10 @@
   <!-- ./wrapper -->
 
   <?php $this->load->view('template/footer_style.php') ?>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
   </body>
   </html>

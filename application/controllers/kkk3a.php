@@ -16,7 +16,10 @@
     }
     function input (){
     //  $data['namavisi'] = $this->m_data->selectUser('');
-      $this->load->view("selaras/kkk3a_form");
+    $data['misi_rpjm']  = $this->m_data->tampil_misir()->result_array(); 
+    $data['judul'] ="Form Langkah 3a";
+    $this->load->view("selaras/kkk3a_form",$data);
+
     }
     function hapus($id_sync_visi){
       $where = array('id_sync_visi' => $id_sync_visi);

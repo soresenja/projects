@@ -69,6 +69,13 @@ class M_data extends CI_Model{
 				 ->get()
 				 ->result();
 	}
+
+	// 7 Oktober 2020
+	function tampil_misir(){
+		return $this->db->get('daftar_misirpjmn');
+	}
+	// end edit
+	
 	function tampil_kkk4(){
 		return $this->db->get('sync_indikator');
 	}
@@ -147,6 +154,7 @@ class M_data extends CI_Model{
 	function tampil_link6(){
 		return $this->db->get('link_subkegiatan');
 	}
+
 }
 
 ?>
