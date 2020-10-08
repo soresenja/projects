@@ -40,6 +40,13 @@
   		redirect('kkk3c/index');
   	}
 
+    // edit 9 okt 2020
+    function input_tujuan(){
+      $data['tujuan_rpj'] = $this->m_data->tampil_tujuanrpj()->result_array();
+      $this->load->view("selaras/kkk3c_form",$data);
+    }
+    // end
+
     // edit 10/08/2020
       function edit($id){
         if ($id===null) {

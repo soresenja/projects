@@ -16,7 +16,7 @@
       $data['sync_visi'] = $this->m_data->tampil_kkk3a();
       $this->load->view("selaras/kkk3a", $data);
     }
-    function input (){
+    function input(){
     //  $data['namavisi'] = $this->m_data->selectUser('');
     $data['misi_rpjm']  = $this->m_data->tampil_misir()->result_array(); 
     $data['judul'] ="Form Langkah 3a";

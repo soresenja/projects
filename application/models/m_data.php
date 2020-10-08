@@ -97,7 +97,13 @@ class M_data extends CI_Model{
 		return $this->db->get('daftar_misirpjmn');
 	}
 	// end edit
-	
+
+	//9 okt 2020
+	function tampil_tujuanrpj(){
+		return $this->db->get('daftar_tujuanrpjmn');
+	}
+	//end Edit
+
 	function tampil_kkk4(){
 		return $this->db->get('sync_indikator');
 	}

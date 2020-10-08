@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Home</title>
     <?php $this->load->view('template/header_style.php') ?>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
   </head>
   <body class="hold-transition sidebar-mini" style="background-color: #071a52">
 
@@ -36,9 +38,13 @@
           <label>Tujuan RPJMN</label>
           <select class="form-control" name="a">
             <option selected>Pilih</option>
-            <option value="1">Dimensi pembangunan manusia dan masyarakat</option>
-            <option value="2">Dimensi pembangunan sektor unggulan</option>
-            <option value="3">Dimensi pemerataan dan kewilayahan</option>
+           <?php
+              foreach($tujuan_rpj as $data_tujuan){
+                ?>
+                <option value="<?=$data_tujuan['id_tujuanrpjmn']?>"><?=$data_tujuan['tu_rpjmn']?></option>
+                <?php
+              }
+           ?>
           </select>
           <label>Tujuan RPJMD</label>
             <input type="text" class="form-control" name="b">
@@ -80,5 +86,10 @@
   <!-- ./wrapper -->
 
   <?php $this->load->view('template/footer_style.php') ?>
+   <!-- Latest compiled and minified JavaScript -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+  <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
   </body>
   </html>
