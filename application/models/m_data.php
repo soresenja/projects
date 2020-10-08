@@ -69,7 +69,20 @@ class M_data extends CI_Model{
 				 ->get()
 				 ->result();
 	}
-
+	// 08/10/2020
+	function tampil_kkk3c_one($id){
+		$this->db->order_by('id_sync_tujuan', 'ASC');
+			 return $this->db->from('sync_tujuan')
+				 ->join('daftar_tujuanrpjmn', 'daftar_tujuanrpjmn.id_tujuanrpjmn=sync_tujuan.id_tujuanrpjmn')
+				 ->where('id_sync_tujuan',$id)
+				 ->get()
+				 ->row();
+	}
+	function update_kkk3c($id , $where){
+		$this->db->where($id);
+		$this->db->update('sync_tujuan',$where);
+	}
+	// End
 	// 7 Oktober 2020
 	function tampil_misir(){
 		return $this->db->get('daftar_misirpjmn');

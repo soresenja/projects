@@ -40,6 +40,30 @@
   		redirect('kkk3c/index');
   	}
 
+    // edit 10/08/2020
+      function edit($id){
+        if ($id===null) {
+          redirect('kkk3c');
+        }else{
+          $data['data'] = $this->m_data->tampil_kkk3c_one($id);
+          $this->load->view("selaras/kkk3c_edit_form",$data);
+        }
+      }
+      function edit_data(){
+        $data = [
+          'id_tujuanrpjmn' => $this->input->post('a'),
+          'tu_rpjmd' => $this->input->post('b'),
+          'selaras' => $this->input->post('c'),
+          'keterangan' => $this->input->post('d'),
+        ];
+        $id = [
+          'id_sync_tujuan' => $this->input->post('id')
+        ];
+
+        $this->m_data->update_kkk3c($id,$data);
+        redirect('kkk3c');
+      }
+    // end edit
 }
 
 ?>

@@ -74,7 +74,7 @@
       <!--
       edit untuk mengisi/edit kolom 3-5 pada tabel view
     -->
-      <td><a href="<?=base_url('kkk3c/input')?>">edit</a></td>
+      <td><?= anchor ('kkk3c/edit/'.$s->id_sync_tujuan,'Edit')?></a></td>
     </tr>
     <?php } ?>
     <tr>
