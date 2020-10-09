@@ -36,15 +36,16 @@
       <form action="<?php echo base_url(). 'kkk3c/simpan'; ?>" method="post">
         <div class="form-group">
           <label>Tujuan RPJMN</label>
-          <select class="form-control" name="a">
-            <option selected>Pilih</option>
-           <?php
+          <select class="selectpicker form-control" data-live-search="true" name="a">
+            <option data-tokens="ketchup mustard" >Pilih</option>
+            <?php 
               foreach($tujuan_rpj as $data_tujuan){
                 ?>
-                <option value="<?=$data_tujuan['id_tujuanrpjmn']?>"><?=$data_tujuan['tu_rpjmn']?></option>
+                  <option value="<?=$data_tujuan['id_tujuanrpjmn']?>"><?=$data_tujuan['tu_rpjmn']?></option>
                 <?php
               }
-           ?>
+
+            ?>
           </select>
           <label>Tujuan RPJMD</label>
             <input type="text" class="form-control" name="b">

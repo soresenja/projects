@@ -15,7 +15,10 @@
       $this->load->view("selaras/kkk3c", $data);
     }
     function input (){
-      $this->load->view("selaras/kkk3c_form");
+      $data['tujuan_rpj'] = $this->m_data->tampil_tujuanrpj()->result_array();
+      
+      $this->load->view("selaras/kkk3c_form", $data);
+    
     }
     function hapus($id_sync_tujuan){
       $where = array('id_sync_tujuan' => $id_sync_tujuan);
@@ -40,18 +43,12 @@
   		redirect('kkk3c/index');
   	}
 
-    // edit 9 okt 2020
-    function input_tujuan(){
-      $data['tujuan_rpj'] = $this->m_data->tampil_tujuanrpj()->result_array();
-      $this->load->view("selaras/kkk3c_form",$data);
-    }
-    // end
-
     // edit 10/08/2020
       function edit($id){
         if ($id===null) {
           redirect('kkk3c');
         }else{
+          $data['tujuan_rpj'] = $this->m_data->tampil_tujuanrpj()->result_array();
           $data['data'] = $this->m_data->tampil_kkk3c_one($id);
           $this->load->view("selaras/kkk3c_edit_form",$data);
         }

@@ -38,8 +38,13 @@
           <select class="form-control" name="a" readonly>
             <option selected>Pilih</option>
             <option value="1" <?=($data->id_tujuanrpjmn == "1")?'selected':'';?> >Dimensi pembangunan manusia dan masyarakat</option>
-            <option value="2" <?=($data->id_tujuanrpjmn == "2")?'selected':'';?> >Dimensi pembangunan sektor unggulan</option>
-            <option value="3" <?=($data->id_tujuanrpjmn == "3")?'selected':'';?> >Dimensi pemerataan dan kewilayahan</option>
+           <?php 
+              foreach($tujuan_rpj as $data_tujuan){
+                ?>
+                  <option value="<?=$data_tujuan['id_tujuanrpjmn']?>"<?=($data->id_tujuanrpjmn == $data_tujuan['id_tujuanrpjmn'])?'selected':'';?> ><?=$data_tujuan['tu_rpjmn']?></option>
+                <?php
+              }
+            ?>
           </select>
           <label>Tujuan RPJMD</label>
             <input type="text" class="form-control" name="b" value="<?=$data->tu_rpjmd?>">
