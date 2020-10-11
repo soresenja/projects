@@ -12,6 +12,9 @@
     }
     function index (){
       $data['sync_tujuan'] = $this->m_data->tampil_kkk3c();
+      $data['data_selaras'] = $this->m_data->sync_visi()->num_rows();
+      $data['total'] = $this->m_data->sync_visi('selaras')->num_rows();
+      $data['hitung_selaras'] = $this->m_data->sync_selaras()->num_rows();
       $this->load->view("selaras/kkk3c", $data);
     }
     function input (){

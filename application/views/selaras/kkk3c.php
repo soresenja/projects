@@ -80,20 +80,12 @@
     <tr>
       <td></td>
       <td colspan="2">Total Keselarasan</td>
-      <td>8
-        <!--
-        menghitung jumlah "selaras" pada cell di atasnya
-        -->
-      </td>
+      <td><?=$data_selaras;?></td>
     </tr>
     <tr>
       <td></td>
       <td colspan="2">Persentase Keselarasan</td>
-      <td>100%
-        <!--
-        persentase jumlah selaras dengan jumlah isian pada kolom sebelumnya (kolom ke 3)
-        -->
-      </td>
+      <td><?=($total != 0)? $jumlah = (( $hitung_selaras / $total ) *100)."%":''?></td>
     </tr>
   </tbody>
 </table>

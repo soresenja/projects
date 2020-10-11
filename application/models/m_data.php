@@ -90,7 +90,7 @@ class M_data extends CI_Model{
 	function sync_visi($selaras=null){
 		$this->db->select('*');
 		$this->db->from('sync_visi');
-		($selaras!=null)?$this->db->where('selaras','selaras'):'';
+		($selaras!=null)?$this->db->where('selaras !=',''):'';
 		return $this->db->get();
 	}
 	function daftar_visirpjmn(){
@@ -98,12 +98,20 @@ class M_data extends CI_Model{
 	}
 	// end edit
 
-
 	//9 okt 2020
 	function tampil_tujuanrpj(){
 		return $this->db->get('daftar_tujuanrpjmn');
 	}
 	//end Edit
+
+	//10 Okt 2020
+	function sync_selaras(){
+		$this->db->select('*');
+		$this->db->from('sync_visi');
+		$this->db->where('selaras','selaras');
+		return $this->db->get();
+	}
+	//end edit
 
 	function tampil_kkk4(){
 		return $this->db->get('sync_indikator');
