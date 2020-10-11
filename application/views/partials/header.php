@@ -38,12 +38,18 @@
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
         <li class="nav-header">MENU</li>
-      <li class="nav-item">
-        <a href="<?=base_url('crud/index')?>" class="nav-link">
-          <i class="fas fa-print nav-icon"></i>
-          <p>User</p>
-        </a>
-      </li>
+      <?php 
+          if ($_SESSION['level']==="1") {
+            ?>
+            <li class="nav-item">
+              <a href="<?=base_url('crud/index')?>" class="nav-link">
+                <i class="fas fa-print nav-icon"></i>
+                <p>User</p>
+              </a>
+            </li>
+            <?php
+          }
+       ?>
       <!--
       <li class="nav-item has-treeview">
         <a href="" class="nav-link">

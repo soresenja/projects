@@ -6,7 +6,7 @@
 
  	function __construct(){
  		parent::__construct();
- 		$this->load->model('m_login');
+ 		$this->load->model('M_login');
 
  	}
 
@@ -19,22 +19,22 @@
  		$password = $this->input->post('password');
  		$where = array(
  			'username' => $username,
- 			'password' => md5($password)
+ 			'pass' => md5($password)
  			);
- 		$cek = $this->m_login->cek_login("admin",$where)->num_rows();
+ 		$cek = $this->M_login->cek_login($where)->num_rows();
  		if($cek > 0){
-
+ 		$data['login'] = $this->M_login->cek_login($where)->row_array();
  			$data_session = array(
  				'nama' => $username,
- 				'status' => "login"
- 				);
-
+ 				'status' => "login",
+ 				'level' => $data['login']['level']
+			);
  			$this->session->set_userdata($data_session);
 
- 			redirect(base_url("admin"));
+ 			redirect(base_url("crud"));
 
  		}else{
- 			echo "Username dan password salah !";
+ 			// echo "Username dan password salah !";
  		}
  	}
 

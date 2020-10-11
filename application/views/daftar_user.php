@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Home</title>
     <?php $this->load->view('template/header_style.php') ?>
+
+    <link rel="stylesheet" href="<?= base_url('assets/adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.css') ?>">
   </head>
   <body class="hold-transition sidebar-mini" style="background-color: #071a52">
 
@@ -31,25 +33,25 @@
 
   <h3 class="card-header text-center font-weight-bold text-uppercase py-4">USER</h3>
   <div class="card-body">
-    <div id="table">
+    <div>
       <span class="float-right mb-3 mr-2">
         <a href="<?=base_url('crud/tambah')?>" class="text-success">
           <i class="fas fa-plus fa-2x" aria-hidden="true"></i>
         </a>
       </span>
-      <table class="table table-bordered table-striped text-center">
+  <table class="table table-bordered table-striped text-center" id="example1">
   <thead>
     <tr>
-      <th scope="col">No.</th>
-      <th scope="col">Provinsi</th>
-      <th scope="col">Kabupaten/Kota</th>
-      <th scope="col">Username</th>
-      <th scope="col">Password</th>
-      <th scope="col">Nama Lengkap</th>
-      <th scope="col">Jabatan</th>
-      <th scope="col">Unit Kerja</th>
-      <th scope="col">Level</th>
-      <th colspan="2" scope="col">Aksi</th>
+      <td scope="col">No.</td>
+      <td scope="col">Provinsi</td>
+      <td scope="col">Kabupaten/Kota</td>
+      <td scope="col">Username</td>
+      <td scope="col">Password</td>
+      <td scope="col">Nama Lengkap</td>
+      <td scope="col">Jabatan</td>
+      <td scope="col">Unit Kerja</td>
+      <td scope="col">Level</td>
+      <td scope="col">Aksi</td>
     </tr>
   </thead>
   <tbody>
@@ -67,12 +69,7 @@
         <td><?php echo $u->jabatan ?></td>
         <td><?php echo $u->unit ?></td>
         <td><?php echo $u->level ?></td>
-        <td>
-          <?php echo anchor('crud/hapus/'.$u->id_user,'Hapus'); ?>
-        </td>
-        <td>
-          <a href="<?=base_url('crud/edit')?>" class="btn btn-warning">Edit</a>
-        </td>
+        <td><?php echo anchor('crud/hapus/'.$u->id_user,'Hapus'); ?> | <a href="<?=base_url('crud/edit')?>" class="btn btn-warning">Edit</a></td>
     </tr>
   <?php } ?>
   </tbody>
@@ -112,6 +109,13 @@
   <!-- ./wrapper -->
 
   <?php $this->load->view('template/footer_style.php') ?>
+    <script src="<?= base_url('assets/adminlte/plugins/datatables/jquery.dataTables.min.js') ?>"></script>
+    <script src="<?= base_url('assets/adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
+    <script>
+      $(function() {
+          $("#example1").DataTable();
+      });
+    </script>
   <script>
   const $tableID = $('#table');
 const $BTN = $('#export-btn');

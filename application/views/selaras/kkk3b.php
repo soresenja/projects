@@ -81,7 +81,7 @@
     <tr>
       <td></td>
       <td colspan="2">Total Keselarasan</td>
-      <td>5
+      <td><?=$visi_total?>
         <!--
         menghitung jumlah "selaras" pada cell di atasnya
         -->
@@ -90,7 +90,7 @@
     <tr>
       <td></td>
       <td colspan="2">Persentase Keselarasan</td>
-      <td>100%
+      <td><?= number_format(($visi_sel/$visi_total)*100, 2, ',', ' ')?>%
         <!--
         persentase jumlah selaras dengan jumlah isian pada kolom sebelumnya (kolom ke 3)
         -->
