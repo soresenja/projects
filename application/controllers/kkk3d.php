@@ -15,7 +15,7 @@
       $this->load->view("selaras/kkk3d", $data);
     }
     function input (){
-      $data['combo_tujuan'] = $this->m_data->sync('selaras', 'sync_tujuan')->result_array();
+      $data['combo_tujuan'] = $this->m_data->sync_tujuan('selaras')->result_array();
       $data['combo_sasaran'] = $this->m_data->sync('selaras', 'sync_sasaran')->result_array();
       $data['combo_indikator'] = $this->m_data->sync('selaras', 'sync_indikator')->result_array();
       $this->load->view("selaras/kkk3d_form",$data);

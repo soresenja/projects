@@ -38,7 +38,7 @@
               <?php 
                   foreach ($combo_tujuan as $data_tujuan) {
                     ?>
-                      <option value="<?=$data_tujuan['id_sync_tujuan']?>"><?=$data_tujuan['tu_rpjmd']?></option>
+                      <option value="<?=$data_tujuan['id_sync_tujuan']?>"><?=$data_tujuan['tu_rpjmn']?></option>
                     <?php
                   }
                ?>

@@ -120,6 +120,15 @@ class M_data extends CI_Model{
 		($selaras!=null)?$this->db->where('selaras',$selaras):'';
 		return $this->db->get();
 	}
+
+	function sync_tujuan($selaras=null){
+		$this->db->select('*');
+		$this->db->from('sync_tujuan st');
+		$this->db->join('daftar_tujuanrpjmn dt','st.id_tujuanrpjmn = dt.id_tujuanrpjmn');
+		($selaras!=null)?$this->db->where('selaras',$selaras):'';
+		$this->db->group_by('st.id_tujuanrpjmn');
+		return $this->db->get();
+	}
 	// end edit
 
 	function tampil_kkk4(){
