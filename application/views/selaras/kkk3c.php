@@ -85,7 +85,7 @@
     <tr>
       <td></td>
       <td colspan="2">Persentase Keselarasan</td>
-      <td><?=($total != 0)? $jumlah = (( $hitung_selaras / $total ) *100)."%":''?></td>
+      <td><?=($total != 0)? $jumlah = (number_format(( $hitung_selaras / $total ) *100, 2, ',', ' '))."%":''?></td>
     </tr>
   </tbody>
 </table>

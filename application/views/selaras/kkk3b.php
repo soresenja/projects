@@ -81,20 +81,12 @@
     <tr>
       <td></td>
       <td colspan="2">Total Keselarasan</td>
-      <td><?=$visi_total?>
-        <!--
-        menghitung jumlah "selaras" pada cell di atasnya
-        -->
-      </td>
+      <td><?=$data_selaras;?></td>
     </tr>
     <tr>
       <td></td>
       <td colspan="2">Persentase Keselarasan</td>
-      <td><?= number_format(($visi_sel/$visi_total)*100, 2, ',', ' ')?>%
-        <!--
-        persentase jumlah selaras dengan jumlah isian pada kolom sebelumnya (kolom ke 3)
-        -->
-      </td>
+      <td><?=($total != 0)? $jumlah = (number_format(( $hitung_selaras / $total ) *100, 2, ',', ' '))."%":''?></td>
     </tr>
   </tbody>
 </table>

@@ -19,13 +19,14 @@
  		$password = $this->input->post('password');
  		$where = array(
  			'username' => $username,
- 			'pass' => md5($password)
+ 			'pass' => $password
  			);
  		$cek = $this->M_login->cek_login($where)->num_rows();
  		if($cek > 0){
  		$data['login'] = $this->M_login->cek_login($where)->row_array();
  			$data_session = array(
- 				'nama' => $username,
+ 				'username' => $username,
+ 				'nama' => $data['login']['nama'],
  				'status' => "login",
  				'level' => $data['login']['level']
 			);

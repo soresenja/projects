@@ -10,7 +10,10 @@
       $this->load->model('m_data');
       $this->load->helper('url');
     }
-    function index (){
+    function index(){
+      $data['data_selaras'] = $this->m_data->sync_visi()->num_rows();
+      $data['total'] = $this->m_data->sync_visi('selaras')->num_rows();
+      $data['hitung_selaras'] = $this->m_data->sync_selaras()->num_rows();
       $data['sync_misi'] = $this->m_data->tampil_kkk3b();
       $this->load->view("selaras/kkk3b", $data);
     }

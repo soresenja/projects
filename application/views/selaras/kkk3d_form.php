@@ -35,49 +35,35 @@
           <label>Pilih tujuan RPJMN</label>
             <select class="form-control" name="a">
               <option selected>Pilih</option>
-              <option value="1">Dimensi pembangunan manusia dan masyarakat</option>
-              <option value="2">Dimensi pembangunan sektor unggulan</option>
-              <option value="3">Dimensi pemerataan dan kewilayahan</option>
-
-                <!--
-                  pilihan muncul dari kolom sasaran rpjmn pada daftar sebelumnya (kkkd.php)
-                  atau dari sasaran pada database daftar_sasaranrpjmn dengan kondisi database sync_tujuan bernilai "selaras"
-                  sumber:
-                  sync_tujuan
-                  daftar_sasaranrpjmn
-                -->
-              </option>
+              <?php 
+                  foreach ($combo_tujuan as $data_tujuan) {
+                    ?>
+                      <option value="<?=$data_tujuan['id_sync_tujuan']?>"><?=$data_tujuan['tu_rpjmd']?></option>
+                    <?php
+                  }
+               ?>
             </select>
           <label>Pilih sasaran RPJMN</label>
             <select class="form-control" name="b">
               <option selected>Pilih</option>
-              <option value="1">Pembangunan Manusia dan Masyarakat</option>
-              <option value="2">Ekonomi Makro</option>
-              <option value="3">Pendidikan</option>
-                <!--
-                  pilihan muncul dari kolom sasaran rpjmn pada daftar sebelumnya (kkkd.php)
-                  atau dari sasaran pada database daftar_sasaranrpjmn dengan kondisi database sync_tujuan bernilai "selaras"
-                  sumber:
-                  sync_tujuan
-                  daftar_sasaranrpjmn
-                -->
-              </option>
+              <?php 
+                  foreach ($combo_sasaran as $data_sasaran) {
+                    ?>
+                      <option value="<?=$data_sasaran['id_sync_sasaran']?>"><?=$data_sasaran['sa_rpjmd']?></option>
+                    <?php
+                  }
+               ?>
             </select>
             <label>Pilih indikator RPJMN</label>
               <select class="form-control" name="c">
                 <option selected>Pilih</option>
-                <option value="1">Indeks Pembangunan Manusia (IPM)</option>
-                <option value="2">Indeks Pembangunan Masyarakat</option>
-                <option value="3">Indeks Gini</option>
-
-                  <!--
-                  pilihan muncul berdasarkan indikator ini masuk sasaran mana dan apakah sasaran itu masuk ke tujuan yang bernilai "selaras"
-                  sumber:
-                  sync_tujuan
-                  daftar_sasaranrpjmn
-                  daftar_indikator_rpjmn
-                  -->
-                </option>
+              <?php 
+                  foreach ($combo_indikator as $data_indikator) {
+                    ?>
+                      <option value="<?=$data_indikator['id_sync_indikator']?>"><?=$data_indikator['i_rpjmd']?></option>
+                    <?php
+                  }
+               ?>
               </select>
           <label for="formGroupExampleInput">Sasaran RPJMD</label>
             <input type="text" class="form-control" name="d">

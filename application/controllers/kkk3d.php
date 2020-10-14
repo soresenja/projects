@@ -15,7 +15,10 @@
       $this->load->view("selaras/kkk3d", $data);
     }
     function input (){
-      $this->load->view("selaras/kkk3d_form");
+      $data['combo_tujuan'] = $this->m_data->sync('selaras', 'sync_tujuan')->result_array();
+      $data['combo_sasaran'] = $this->m_data->sync('selaras', 'sync_sasaran')->result_array();
+      $data['combo_indikator'] = $this->m_data->sync('selaras', 'sync_indikator')->result_array();
+      $this->load->view("selaras/kkk3d_form",$data);
     }
     function hapus($id_sync_sasaran){
       $where = array('id_sync_sasaran' => $id_sync_sasaran);

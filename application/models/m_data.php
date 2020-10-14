@@ -113,6 +113,15 @@ class M_data extends CI_Model{
 	}
 	//end edit
 
+	// 13/10/2020
+	function sync($selaras=null , $tabel=null){
+		$this->db->select('*');
+		$this->db->from($tabel);
+		($selaras!=null)?$this->db->where('selaras',$selaras):'';
+		return $this->db->get();
+	}
+	// end edit
+
 	function tampil_kkk4(){
 		return $this->db->get('sync_indikator');
 	}
